@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class ScoreAverage {
 
     public static void main(String[] args) {
+       //System.out.printf("당신은 %s 등급 입니다.", estimateGrade(69));
         double score = getAverageScore(new Scanner(System.in));
         System.out.printf("당신의 점수는 %.2f점 입니다.%n", score);
         System.out.printf("당신은 %s 등급 입니다.", estimateGrade(score));
@@ -17,10 +18,14 @@ public class ScoreAverage {
     private static double getAverageScore(Scanner scanner) {
         int loop = 0;
         int score = 0;
+        int input = 0;
         while (true) {
+            input = scanner.nextInt();
+            if ( input == 0 ) break;
             loop++;
-            throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+            score += input;
         }
+        if (loop == 0 ) return 0;
         return ((double)score) / ((double)loop);
     }
 
@@ -36,7 +41,18 @@ public class ScoreAverage {
      * @param averageScore 평균 점수
      */
     private static String estimateGrade(double averageScore) {
-        throw new RuntimeException("이 코드 라인을 지우고, 이곳에서 작성하십시오.");
+        if (averageScore >= 90){
+            return "A";
+        }
+        else if (averageScore >= 80){
+            return "B";
+        }
+        else if (averageScore >= 70){
+            return "C";
+        }
+        else{
+            return "D";
+        }
     }
 
 }
